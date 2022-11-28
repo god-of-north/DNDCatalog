@@ -199,7 +199,7 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<AppIdentityDbContext>();
         // context.Database.Migrate();
         context.Database.EnsureCreated();
-        await AppIdentityDbContextSeed.SeedAsync(context, userManager, roleManager);
+        //await AppIdentityDbContextSeed.SeedAsync(context, userManager, roleManager);
     }
     catch (Exception ex)
     {
