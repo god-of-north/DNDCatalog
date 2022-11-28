@@ -69,6 +69,10 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 //    configuration.RootPath = "../DNDCatalog.Front/build";
 //});
 
+builder.Services.AddAntiforgery(o => {
+    o.Cookie.Name = "X-CSRF-TOKEN";
+});
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddSwaggerGen(c =>
