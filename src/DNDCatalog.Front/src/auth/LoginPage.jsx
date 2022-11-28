@@ -11,7 +11,7 @@ export const LoginPage = () => {
     const [alertMessage, setAlertMessage] = useState("");
     const [alertMessageType, setAlertMessageType] = useState("danger");
 
-    const [setAuthToken] = useLocalStorageState("authToken");
+    const [authToken, setAuthToken] = useLocalStorageState("authToken");
     const [authUsername, setAuthUsername] = useLocalStorageState("authUsername");
     const [isAuthenticated, setAuth] = useLocalStorageState("isAuthenticated");
 
