@@ -1,12 +1,12 @@
 import React from 'react';
-import { useGlobalState } from './state';
+import { useLocalStorageState } from 'react-localstorage-hooks';
 
 export const LoginLink = () => {
 
-    const [isAuthenticated] = useGlobalState("isAuthenticated");
-    const [email] = useGlobalState("email");
+    const [authUsername] = useLocalStorageState("authUsername");
+    const [isAuthenticated] = useLocalStorageState("isAuthenticated");
 
     return (
-      <span>{isAuthenticated?email:"Login"}</span>
+      <span>{isAuthenticated?authUsername:"Login"}</span>
     );
 }

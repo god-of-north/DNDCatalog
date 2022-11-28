@@ -2,11 +2,11 @@ import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useGlobalState } from '../../auth/state';
+import { useLocalStorageState } from 'react-localstorage-hooks';
 
 export const SpellListItem = ({spell}) => {
 
-    const [isAuthenticated] = useGlobalState("isAuthenticated");
+    const [isAuthenticated] = useLocalStorageState("isAuthenticated");
 
     return (
       <Container>

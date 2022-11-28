@@ -19,8 +19,7 @@ import axios from 'axios';
 
 import {useForm, FormProvider} from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import {useGlobalState} from '../auth/state'
+import { useLocalStorageState } from 'react-localstorage-hooks';
 
 export const SpellEditPage = () =>{
 
@@ -29,8 +28,8 @@ export const SpellEditPage = () =>{
     const methods = useForm();
     const {register, handleSubmit, setValue } = methods;
 
-    const [isAuthenticated] = useGlobalState("isAuthenticated");
-    const [token] = useGlobalState("token");
+    const [authToken] = useLocalStorageState("authToken");
+    const [isAuthenticated] = useLocalStorageState("isAuthenticated");
 
     const [descriptionUa, setDescriptionUa] = useState("");
     const [descriptionEng, setDescriptionEng] = useState("");
@@ -152,7 +151,7 @@ export const SpellEditPage = () =>{
       console.log(req);
 
       const config = {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${authToken}` }
       };
     
       axios

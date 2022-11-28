@@ -2,22 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {useForm} from 'react-hook-form';
 import { Form, FormControl, FormGroup, FormLabel, Button, Alert } from 'react-bootstrap';
-import { setGlobalState, useGlobalState } from './state';
+import { useLocalStorageState } from 'react-localstorage-hooks';
 
 export const LoginPage = () => {
 
     const {register, handleSubmit } = useForm();
-    const [isAuthenticated] = useGlobalState("isAuthenticated");
-    const [email] = useGlobalState("email");
+
     const [alertMessage, setAlertMessage] = useState("");
     const [alertMessageType, setAlertMessageType] = useState("danger");
 
-//    const setState = (key, val) =>
-//    {
-//        setGlobalState(key, val);
-//        localStorage.setItem(key, JSON.stringify(val));
-//    }
-
+    const [setAuthToken] = useLocalStorageState("authToken");
+    const [authUsername, setAuthUsername] = useLocalStorageState("authUsername");
+    const [isAuthenticated, setAuth] = useLocalStorageState("isAuthenticated");
 
     const onSubmit = async (data) =>
     {
@@ -36,10 +32,11 @@ export const LoginPage = () => {
                     throw 'Login error'
                 
                 console.log(response.data.token);
-                setGlobalState("token", response.data.token);
-                setGlobalState("email", data.username);
-                setGlobalState("authData", response.data);
-                setGlobalState("isAuthenticated", true);
+               
+                setAuthToken(response.data.token);
+                setAuthUsername(data.username);
+                setAuth(true);
+
                 setAlertMessageType("success");
                 setAlertMessage("Successfully Logged in");
             })
@@ -53,10 +50,9 @@ export const LoginPage = () => {
 
     const logout = () =>
     {
-        setGlobalState("isAuthenticated", false);
-        setGlobalState("token", "");
-        setGlobalState("email", "");
-        setGlobalState("authData", {});
+        setAuth(false);
+        setAuthToken("");
+        setAuthUsername("");
     }
 
     if(!isAuthenticated) return (
@@ -83,7 +79,7 @@ export const LoginPage = () => {
     );
     else return (
         <div>
-            <h1>Hello, {email}!</h1>
+            <h1>Hello, {authUsername}!</h1>
             <Button onClick={logout}>Logout</Button>
         </div>
     );
