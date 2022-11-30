@@ -7,35 +7,35 @@ export const Range = () =>{
 
     return (
       <div>
-        <FormLabel>Range</FormLabel>
+        <FormLabel>Дальність</FormLabel>
         <br/>
         <FormControl as="select" {...register("range_type")} aria-label="range_type" >
-            <option value="0">Self</option>
-            <option value="1">Touch</option>
-            <option value="2">Distance</option>
-            <option value="3">Sight</option>
-            <option value="4">Unlimited</option>
+            <option value="0">На себе</option>
+            <option value="1">Дотик</option>
+            <option value="2">Дистанція</option>
+            <option value="3">Погляд</option>
+            <option value="4">Безмежна</option>
         </FormControl>
 
         <br/>
-        <FormLabel>Distance</FormLabel>
-        <FormControl {...register("range_distance")} type="number" placeholder='Distance..'/>
+        <FormLabel>Дистанція</FormLabel>
+        <FormControl {...register("range_distance")} type="number" placeholder='Дистанція..'/>
 
-        <FormLabel>Area</FormLabel>
-        <FormControl {...register("range_area")} type="number" placeholder='Area..'/>
+        <FormLabel>Ділянка</FormLabel>
+        <FormControl {...register("range_area")} type="number" placeholder='Ділянка..'/>
 
-        <FormLabel>Shape</FormLabel>
+        <FormLabel>Форма ділянки</FormLabel>
         <FormControl as="select" {...register("range_shape")} aria-label="range_shape" >
-            <option>---</option>
-            <option value="0">Square</option>
-            <option value="1">Cube</option>
-            <option value="2">Sphere</option>
-            <option value="3">Circle</option>
-            <option value="4">Cone</option>
-            <option value="5">Cylinder</option>
-            <option value="6">Line</option>
+            <option value="---">🐖💨🤷‍♀️🤷‍♂️</option>
+            <option value="0">Квадрат</option>
+            <option value="1">Куб</option>
+            <option value="2">Сфера</option>
+            <option value="3">Коло</option>
+            <option value="4">Конус</option>
+            <option value="5">Циліндер</option>
+            <option value="6">Лінія</option>
         </FormControl>
       </div>
     );
-  }
+}
 

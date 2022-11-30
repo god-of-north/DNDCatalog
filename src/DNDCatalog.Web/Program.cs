@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.AspNetCore.Antiforgery;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,17 +62,9 @@ builder.Services.AddAuthentication(config =>
     };
 });
 
-builder.Services.AddControllers().AddNewtonsoftJson();
-//builder.Services.AddControllersWithViews().AddNewtonsoftJson();
+//builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 
-//builder.Services.AddSpaStaticFiles(configuration =>
-//{
-//    configuration.RootPath = "../DNDCatalog.Front/build";
-//});
-
-builder.Services.AddAntiforgery(o => {
-    o.Cookie.Name = "X-CSRF-TOKEN";
-});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -143,7 +136,7 @@ else
 app.UseHttpsRedirection();
 app.UseCookiePolicy();
 app.UseStaticFiles();
-//app.UseSpaStaticFiles();
+
 app.UseRouting();
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.UseAuthorization();
@@ -157,24 +150,6 @@ app.UseEndpoints(endpoints =>
 });
 
 app.MapFallbackToFile("index.html");
-
-//app.UseSpa(spa =>
-//{
-//    spa.Options.SourcePath = "../DNDCatalog.Front";
-//
-//    if (app.Environment.IsDevelopment())
-//    {
-//        if (app.Configuration.GetValue<bool>("runWebpackOutsideOfAspnet"))
-//        {
-//            var port = app.Configuration.GetValue("webpackPort", "11494");
-//            spa.UseProxyToSpaDevelopmentServer($"http://localhost:{port}");
-//        }
-//        else
-//        {
-//            spa.UseReactDevelopmentServer("start");
-//        }
-//    }
-//});
 
 
 

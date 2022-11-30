@@ -23,7 +23,7 @@ export const Archetypes = () =>{
     return (
       <div>
 
-        <Form.Label>Archetypes</Form.Label>
+        <Form.Label>Архетипи</Form.Label>
         <br/>
 
         <Controller

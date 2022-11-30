@@ -8,12 +8,12 @@ export const AttackType = () =>{
 
     return (
       <div>
-        <FormLabel>Attack: </FormLabel>
+        <FormLabel>Атака: </FormLabel>
         <br/>
         <FormControl as="select" {...register("attackType")} aria-label="attackType" >
-            <option>---</option>
-            <option value="0">Melee</option>
-            <option value="1">Ranged</option>
+            <option value="---">🐖💨🤷‍♀️🤷‍♂️</option>
+            <option value="0">Рукопашна</option>
+            <option value="1">Далекосяжна</option>
         </FormControl>
       </div>
     );

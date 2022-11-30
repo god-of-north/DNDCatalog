@@ -7,16 +7,16 @@ export const SavingThrowType = () =>{
 
     return (
       <div>
-        <FormLabel>Saving Throw: </FormLabel>
+        <FormLabel>Кидок рятунку: </FormLabel>
         <br/>
         <FormControl as="select" {...register("savingThrowType")} aria-label="savingThrowType" >
-            <option>---</option>
-            <option value="0">Dexterity</option>
-            <option value="1">Constitution</option>
-            <option value="2">Strength</option>
-            <option value="3">Wisdom</option>
-            <option value="4">Charisma</option>
-            <option value="5">Intelligence</option>
+            <option value="---">🐖💨🤷‍♀️🤷‍♂️</option>
+            <option value="0">Вправність</option>
+            <option value="1">Статура</option>
+            <option value="2">Сила</option>
+            <option value="3">Мудрість</option>
+            <option value="4">Харизма</option>
+            <option value="5">Інтелект</option>
         </FormControl>
       </div>
     );

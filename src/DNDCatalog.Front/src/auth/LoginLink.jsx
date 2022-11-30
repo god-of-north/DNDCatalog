@@ -7,6 +7,6 @@ export const LoginLink = () => {
     const [isAuthenticated] = useLocalStorageState("isAuthenticated");
 
     return (
-      <span>{isAuthenticated?authUsername:"Login"}</span>
+      <span>{isAuthenticated?<strong>{authUsername}</strong>:"Увійти"}</span>
     );
 }

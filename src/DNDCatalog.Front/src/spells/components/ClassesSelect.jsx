@@ -23,7 +23,7 @@ export const ClassesSelector = () =>{
 
     return (
       <div>
-        <Form.Label>Class: </Form.Label>
+        <Form.Label>Класи: </Form.Label>
         <br/>
         <Controller
           name="classes"

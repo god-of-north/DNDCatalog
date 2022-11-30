@@ -8,17 +8,17 @@ export const Duration = () =>{
 
     return (
       <div>
-        <FormLabel>Duration</FormLabel>
+        <FormLabel>Тривалість</FormLabel>
         <br/>
         <FormControl as="select" {...register("duration_type")} aria-label="duration_type" >
-            <option>---</option>
-            <option value="0">Instantaneous</option>
-            <option value="1">UntilDispelled</option>
-            <option value="2">Special</option>
-            <option value="3">Time</option>
-            <option value="4">UntilDispelledOrTriggered</option>
+            <option value="---">🐖💨🤷‍♀️🤷‍♂️</option>
+            <option value="0">Миттєва</option>
+            <option value="1">Поки не розвіється</option>
+            <option value="2">Особлива</option>
+            <option value="3">Має час дії</option>
+            <option value="4">Поки не розвіється, або не спрацює</option>
         </FormControl>
-        {formValues.duration_type!=="---" && <FormControl type="text" {...register("duration_time")} placeholder="Time HH:MM:SS.."/> }
+        {formValues.duration_type!=="---" && <FormControl type="text" {...register("duration_time")} placeholder="Час у форматі HH:MM:SS.."/> }
 
       </div>
     );

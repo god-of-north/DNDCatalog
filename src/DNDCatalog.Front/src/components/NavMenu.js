@@ -27,15 +27,15 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
           <Container>
-            <NavbarBrand tag={Link} to="/">DND.Catalog</NavbarBrand>
+            <NavbarBrand tag={Link} to="/">🎲DND.Catalog</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/">Додомцю</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/spells">Spells</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/spells">Заклинання</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/login"><LoginLink/></NavLink>

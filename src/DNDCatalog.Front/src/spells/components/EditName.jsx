@@ -10,7 +10,7 @@ export const EditName = ({ua, eng, ru}) => {
             <Col><strong>{eng}</strong></Col>
             <Col><strong>{ru}</strong></Col>
             <Col>
-                <FormControl {...register("name")} type="text" placeholder="Spell name in Ukr" />
+                <FormControl {...register("name")} type="text" placeholder="Назва заклинання українською..." />
             </Col>
         </Row>
     );

@@ -10,35 +10,35 @@ export const SpellSources = () =>{
     const [sourceOptions, setSourceOptions] = useState([]);
 
     const getSources = async () => {
-      const response = await fetch('api/v1/sources');
-      const data = await response.json();
-      const options = data.sources.map((x) => Object.create({value:x, label:x}));
-      setSourceOptions(options);
+        const response = await fetch('api/v1/sources');
+        const data = await response.json();
+        const options = data.sources.map((x) => Object.create({value:x, label:x}));
+        setSourceOptions(options);
     }
 
     useEffect(()=>{
-      getSources();
+        getSources();
     }, []);
 
 
     return (
-      <div>
-        <Form.Label>Source</Form.Label>
-        <br/>
+        <div>
+            <Form.Label>Джерело</Form.Label>
+            <br/>
 
-        <Controller
-          name="source"
-          control={control}
-          render={({ field }) => 
-            <CreatableSelect
-                {...field}
-                isClearable
-                options={sourceOptions}
-                value={getValues().source}
-                />
-              }
+            <Controller
+                name="source"
+                control={control}
+                render={({ field }) => 
+                    <CreatableSelect
+                          {...field}
+                          isClearable
+                          options={sourceOptions}
+                          value={getValues().source}
+                          />
+                }
             />
-      </div>
+        </div>
     );
-  }
+}
 

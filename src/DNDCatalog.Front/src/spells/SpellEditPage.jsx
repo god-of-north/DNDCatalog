@@ -109,7 +109,7 @@ export const SpellEditPage = () =>{
 
       if(!isAuthenticated)
       {
-        showAlert("danger", "Please login before editing!");
+        showAlert("danger", "Лише авторизовані користувачі мають право на магію збереження змін!");
         return;
       }
       
@@ -151,7 +151,9 @@ export const SpellEditPage = () =>{
       console.log(req);
 
       const config = {
-        headers: { Authorization: `Bearer ${authToken}` }
+        headers: { 
+          Authorization: `Bearer ${authToken}`,
+        }
       };
     
       axios
@@ -161,9 +163,9 @@ export const SpellEditPage = () =>{
             console.log(response);
 
             if(response.status !== 200)
-                throw 'Saving error'
+                throw 'Помилка збереження'
 
-            showAlert("success", "Saved!");
+            showAlert("success", "Збережено!");
         })
        .catch((error) => 
         {
@@ -176,7 +178,7 @@ export const SpellEditPage = () =>{
     
     return (
       <div>
-        <h1>Spell Edit</h1>
+        <h1>Редагування заклинання</h1>
 
         {alertMessage!=="" && <Alert variant={alertMessageType} onClose={() => setAlertMessage("")} dismissible><p>{alertMessage}</p></Alert>}
 
@@ -206,14 +208,14 @@ export const SpellEditPage = () =>{
             </Row>
             <Row>
               <Col>
-                <FormCheck {...register("ritual")} label="Ritual"  />
-                <FormCheck {...register("concentration")} label="Concentration" />
+                <FormCheck {...register("ritual")} label="Ритуал"  />
+                <FormCheck {...register("concentration")} label="Концентрація" />
               </Col>
               <Col lg="4">
-                <FormCheck   {...register("somatic")} label="Somatic" />
-                <FormCheck   {...register("verbal")} label="Verbal" />
-                <FormCheck   {...register("material")} label="Material" />
-                <FormControl {...register("materialDescription")} type="text" placeholder="Material Component Description..." />
+                <FormCheck   {...register("somatic")} label="Тілесний" />
+                <FormCheck   {...register("verbal")} label="Словесний" />
+                <FormCheck   {...register("material")} label="Матеріальний" />
+                <FormControl {...register("materialDescription")} type="text" placeholder="Опис матеріального компонента..." />
               </Col>
             </Row>
             <Row>
