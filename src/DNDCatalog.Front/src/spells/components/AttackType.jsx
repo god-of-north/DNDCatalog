@@ -13,7 +13,7 @@ export const AttackType = () =>{
         <FormControl as="select" {...register("attackType")} aria-label="attackType" >
             <option value="---">🐖💨🤷‍♀️🤷‍♂️</option>
             <option value="0">Рукопашна</option>
-            <option value="1">Далекосяжна</option>
+            <option value="1">Далекобійна</option>
         </FormControl>
       </div>
     );

@@ -79,7 +79,7 @@ export const SpellFilter = ({value, onChange}) => {
             <Row>
                 <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('attackTypes', e)}>
                     <ToggleButton value="0">Рукопашна</ToggleButton>
-                    <ToggleButton value="1">Далекосяжна</ToggleButton>
+                    <ToggleButton value="1">Далекобійна</ToggleButton>
                 </ToggleButtonGroup>
             </Row>
 
