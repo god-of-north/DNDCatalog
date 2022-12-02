@@ -31,11 +31,13 @@ export const SpellSources = () =>{
                 control={control}
                 render={({ field }) => 
                     <CreatableSelect
-                          {...field}
-                          isClearable
-                          options={sourceOptions}
-                          value={getValues().source}
-                          />
+                        {...field}
+                        isClearable
+                        options={sourceOptions}
+                        value={getValues().source}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                    />
                 }
             />
         </div>

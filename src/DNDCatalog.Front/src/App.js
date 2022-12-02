@@ -8,6 +8,8 @@ import { SpellsPage } from './spells/SpellsPage';
 import { SpellEditPage } from './spells/SpellEditPage';
 import { LoginPage } from './auth/LoginPage';
 
+import './App.scss'
+
 export default class App extends Component {
   static displayName = App.name;
 
