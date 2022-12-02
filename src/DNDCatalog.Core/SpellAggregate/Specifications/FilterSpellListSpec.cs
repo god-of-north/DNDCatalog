@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Specification;
+using DNDCatalog.Core.BaseEntities;
 
 namespace DNDCatalog.Core.SpellAggregate.Specifications;
 public class FilterSpellListSpec : Specification<Spell>

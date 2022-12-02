@@ -1,4 +1,5 @@
-﻿using DNDCatalog.Core.SpellAggregate;
+﻿using DNDCatalog.Core.BaseEntities;
+using DNDCatalog.Core.SpellAggregate;
 using DNDCatalog.Web.Endpoints.SpellEndpoints.Dtos;
 
 namespace DNDCatalog.Web.Endpoints.SpellEndpoints;

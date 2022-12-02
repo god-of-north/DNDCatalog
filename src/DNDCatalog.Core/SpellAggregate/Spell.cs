@@ -1,6 +1,7 @@
 ﻿using DNDCatalog.Core.ClassAggregate;
 using DNDCatalog.SharedKernel.Interfaces;
 using DNDCatalog.SharedKernel;
+using DNDCatalog.Core.BaseEntities;
 
 namespace DNDCatalog.Core.SpellAggregate;
 

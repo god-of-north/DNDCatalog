@@ -1,4 +1,6 @@
-﻿namespace DNDCatalog.Core.SpellAggregate;
+﻿using DNDCatalog.Core.BaseEntities;
+
+namespace DNDCatalog.Core.SpellAggregate;
 
 public class CastingTime
 {
