@@ -51,7 +51,7 @@ export const SpellFilter = ({value, onChange}) => {
             <Row><strong>Рівень</strong></Row>
             <Row>
                 <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" onChange={(e)=>updateFilter('levels', e)}>
-                    <ToggleButton value="0">Заговор</ToggleButton>
+                    <ToggleButton value="0">Заговір</ToggleButton>
                     <ToggleButton value="1">1-й</ToggleButton>
                     <ToggleButton value="2">2-й</ToggleButton>
                     <ToggleButton value="3">3-й</ToggleButton>

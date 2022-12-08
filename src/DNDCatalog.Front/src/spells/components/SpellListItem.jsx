@@ -17,7 +17,7 @@ export const SpellListItem = ({spell}) => {
             <div>{spell.name.rus}</div>
           </Col>
           <Col>
-            <div>Рівень: <Badge bg="light" pill>{spell.level==0?'заговор':spell.level}</Badge></div>
+            <div>Рівень: <Badge bg="light" pill>{spell.level==0?'заговір':spell.level}</Badge></div>
             <div>{spell.source}</div>
           </Col>
           <Col align="right">
