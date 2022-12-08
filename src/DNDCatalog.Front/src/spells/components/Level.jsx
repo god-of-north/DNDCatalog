@@ -13,7 +13,7 @@ export const Level = () =>{
         <FormLabel>Рівень: </FormLabel>
         <br/>
         <FormControl as="select" {...register("level")} aria-label="spell-level" >
-            <option value="0">Заговор</option>
+            <option value="0">Заговір</option>
             <option value="1">1-й</option>
             <option value="2">2-й</option>
             <option value="3">3-й</option>
