@@ -33,7 +33,6 @@ public class SpellUpdate : EndpointBaseAsync.WithRequest<UpdateSpellRequest>.Wit
         Tags = new[] { "SpellEndpoints" })
     ]
     [Authorize(Roles = nameof(Roles.EDITORS), AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [AutoValidateAntiforgeryToken]
     public override async Task<ActionResult<UpdateSpellResponse>> HandleAsync(UpdateSpellRequest request, CancellationToken cancellationToken = default)
     {
         var existingSpell = await _repository.SingleOrDefaultAsync(new SpellDetailsByIdSpec(request.Id), cancellationToken);

@@ -160,7 +160,7 @@ export const SpellEditPage = () =>{
         .put('api/v1/spells', req, config)
         .then((response)=>
         {
-            console.log(response);
+          console.log(response);
 
             if(response.status !== 200)
                 throw 'Помилка збереження'
@@ -170,9 +170,9 @@ export const SpellEditPage = () =>{
        .catch((error) => 
         {
             console.log(error);
-            showAlert("danger", error);
+            showAlert("danger", `Saving failed with error code ${error.response.status}:${error.response.statusText}`);
         });
-  
+ 
     }
     
     
@@ -180,7 +180,12 @@ export const SpellEditPage = () =>{
       <div>
         <h1>Редагування заклинання</h1>
 
-        {alertMessage!=="" && <Alert variant={alertMessageType} onClose={() => setAlertMessage("")} dismissible><p>{alertMessage}</p></Alert>}
+        {alertMessage!=="" &&  
+        <div style={{ position: "sticky", top: 20, zIndex: 999 }}>
+            <Alert variant={alertMessageType} onClose={() => setAlertMessage("")} dismissible>
+                <p>{alertMessage}</p>
+            </Alert>
+        </div>}
 
         <FormProvider {...methods}>
         <Form onSubmit={handleSubmit(onSubmit)} >
@@ -250,5 +255,5 @@ export const SpellEditPage = () =>{
         <br/>
       </div>
     );
-  }
+}
 

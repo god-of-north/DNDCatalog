@@ -7,11 +7,19 @@ import { Home } from "./components/Home";
 import { SpellsPage } from './spells/SpellsPage';
 import { SpellEditPage } from './spells/SpellEditPage';
 import { LoginPage } from './auth/LoginPage';
+import { applyLoginPolicy } from './auth/LoginPolicies'
 
 import './App.scss'
 
 export default class App extends Component {
   static displayName = App.name;
+  
+  constructor(props) {
+    super(props);
+
+    applyLoginPolicy();
+  }
+
 
   render() {
     return (
