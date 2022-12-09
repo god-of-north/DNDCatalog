@@ -4,6 +4,8 @@ import { SpellListItem } from './SpellListItem';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { SpellFilter } from './SpellFilter';
+import { DebounceInput } from 'react-debounce-input';
+import { Form } from 'react-bootstrap';
 
 
 export const SpellList = () =>{
@@ -17,13 +19,14 @@ export const SpellList = () =>{
   const handleFilterClose = () => setFilterShow(false);
   const handleFilterShow = () => setFilterShow(true);
 
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => 
   {
     if(fetching)
     {
       const filterQuery = getFilterQuery(filter);
-      fetch(`api/v1/spells?page=${currentPage}${filterQuery}`)
+      fetch(encodeURI(`api/v1/spells?page=${currentPage}${filterQuery}`))
         .then(async (response) => 
         {
             const data = await response.json();
@@ -60,7 +63,7 @@ export const SpellList = () =>{
     setCurrentPage(0);
     totalCount.current = 0;
     setFetching(true);
-  }, [filter]);
+  }, [filter, searchString]);
 
   const getFilterQuery = (f) =>
   {
@@ -82,6 +85,7 @@ export const SpellList = () =>{
     }
     if("ritual" in f && f.ritual!=="-") query.push(`Ritual=${f.ritual}`);
     if("concentration" in f && f.concentration!=="-") query.push(`Concentration=${f.concentration}`);
+    if(searchString !== "") query.push(`Search=${searchString}`);
     return query.length>0?'&'+query.join("&"):"";
   };
 
@@ -97,12 +101,13 @@ export const SpellList = () =>{
         </Modal.Body>
       </Modal>
 
+      <DebounceInput element={Form.Control} minLength={2} debounceTimeout={500} onChange={e => setSearchString(e.target.value)} />
 
-    <ListGroup as="ol">
-      {spells.map(spell => {
-        return <ListGroup.Item as="li" key={spell.name.eng} ><SpellListItem spell={spell} /></ListGroup.Item> 
-      })}
-    </ListGroup>        
+      <ListGroup as="ol">
+        {spells.map(spell => {
+          return <ListGroup.Item as="li" key={spell.name.eng} ><SpellListItem spell={spell} /></ListGroup.Item> 
+        })}
+      </ListGroup>        
     </div>
   );
 }

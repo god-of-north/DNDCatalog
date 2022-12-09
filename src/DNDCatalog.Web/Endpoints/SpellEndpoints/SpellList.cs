@@ -35,8 +35,8 @@ public class SpellList : EndpointBaseAsync.WithRequest<SpellListRequest>.WithAct
     {
         var filterSpec = _mapper.Map<FilterSpellListSpec>(request);
         var paginatedSpec = _mapper.Map<FilterSpellListWithPagesSpec>(request);
-        var spells = await _repository.ListAsync(paginatedSpec, cancellationToken);
-        var totalCount = await _repository.CountAsync(filterSpec, cancellationToken);
+        var spells = await _repository.SearchByNameWithFilterAsync(paginatedSpec, request.Search, cancellationToken);
+        var totalCount = await _repository.SearchByNameWithFilterCountAsync(filterSpec, request.Search, cancellationToken);
 
         var response = new SpellListResponse
         {

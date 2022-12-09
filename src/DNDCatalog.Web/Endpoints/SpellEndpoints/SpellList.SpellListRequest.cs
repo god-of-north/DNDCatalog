@@ -21,4 +21,5 @@ public class SpellListRequest
     public SpellSchool[]? Schools {get; set;}
     public Guid[]? Classes {get; set;}
     public Guid[]? Archetypes {get; set;}
+    public string? Search {get; set;}
 }
