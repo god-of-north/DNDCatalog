@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using DNDCatalog.Core.ClassAggregate;
+using DNDCatalog.Core.MagicItemAggregate;
 using DNDCatalog.Core.SpellAggregate;
 using DNDCatalog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -15,10 +16,16 @@ public static class SeedData
         {
             if (dbContext.Spells.Any() || dbContext.Classes.Any() || dbContext.Archetypes.Any())
             {
-                return;   // DB has been seeded
+            }
+            else 
+            {
+                PopulateClasses(dbContext);
+                PopulateArchetypes(dbContext);
+                PopulateSpells(dbContext);
             }
 
-            PopulateTestData(dbContext);
+            if (!dbContext.MagicItems.Any())
+                PopulateMagicItems(dbContext);
 
 
         }
@@ -53,11 +60,15 @@ public static class SeedData
             .Select(f => LoadJson<Archetype>(f));
     }
 
+    private static IEnumerable<MagicItem> LoadMagicItems()
+    {
+        return Directory.EnumerateFiles(@"D:\Work\GON\dnd\prepared\magic_items", "*.json")
+            .Select(f => LoadJson<MagicItem>(f));
+    }
+
     public static void PopulateTestData(CatalogDbContext dbContext)
     {
-        PopulateClasses(dbContext);
-        PopulateArchetypes(dbContext);
-        PopulateSpells(dbContext);
+        PopulateMagicItems(dbContext);
     }
 
     private static void PopulateSpells(CatalogDbContext dbContext)
@@ -88,6 +99,13 @@ public static class SeedData
     {
         var classes = LoadClasses().ToList();
         dbContext.Classes.AddRange(classes);
+        dbContext.SaveChanges();
+    }
+
+    private static void PopulateMagicItems(CatalogDbContext dbContext)
+    {
+        var items = LoadMagicItems().ToList();
+        dbContext.MagicItems.AddRange(items);
         dbContext.SaveChanges();
     }
 

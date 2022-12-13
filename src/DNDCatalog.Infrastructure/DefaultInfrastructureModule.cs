@@ -70,6 +70,10 @@ public class DefaultInfrastructureModule : Module
           .As(typeof(ISourceRepository))
           .InstancePerLifetimeScope();
 
+        builder.RegisterType(typeof(MagicItemRepository))
+          .As(typeof(IMagicItemRepository))
+          .InstancePerLifetimeScope();
+
         builder
           .RegisterType<Mediator>()
           .As<IMediator>()
