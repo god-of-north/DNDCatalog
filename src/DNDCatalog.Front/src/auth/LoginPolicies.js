@@ -8,9 +8,19 @@ export const logout = () =>
     localStorage.setItem("authUsername", JSON.stringify(""));
 }
 
+const getStorageItem = (name) =>
+{
+    const value = localStorage.getItem("authToken");
+
+    if(value == "undefined")
+        return null;
+    
+    return JSON.parse(value);
+}
+
 const isExpired = () =>
 {
-    const authToken = JSON.parse(localStorage.getItem("authToken"));
+    const authToken = getStorageItem("authToken");
     if(authToken=="")
     {
         logout();
@@ -27,7 +37,7 @@ const isExpired = () =>
 
 export const applyLoginPolicy = () =>
 {
-    const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
+    const isAuthenticated = getStorageItem("isAuthenticated");
 
     if(isAuthenticated)
     {
@@ -39,8 +49,8 @@ export const applyLoginPolicy = () =>
 
 const hasRole = (role) =>
 {
-    const authToken = JSON.parse(localStorage.getItem("authToken"));
-    const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
+    const authToken = getStorageItem("authToken");
+    const isAuthenticated = getStorageItem("isAuthenticated");
 
     if(!isAuthenticated)
         return false;
