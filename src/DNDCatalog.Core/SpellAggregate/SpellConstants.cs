@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DNDCatalog.Core.SpellAggregate;
 
-internal static class SpellConstants
+public static class SpellConstants
 {
     /// <summary>
     /// How many spells will be shown on page

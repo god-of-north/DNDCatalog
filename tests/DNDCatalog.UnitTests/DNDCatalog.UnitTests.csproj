@@ -33,9 +33,4 @@
     <ProjectReference Include="..\..\src\DNDCatalog.Core\DNDCatalog.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Core\ClassAgreagate\" />
-    <Folder Include="Core\SpellAggregate\" />
-  </ItemGroup>
-
 </Project>
