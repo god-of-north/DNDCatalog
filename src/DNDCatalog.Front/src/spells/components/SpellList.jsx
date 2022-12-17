@@ -6,15 +6,17 @@ import Modal from 'react-bootstrap/Modal';
 import { SpellFilter } from './SpellFilter';
 import { DebounceInput } from 'react-debounce-input';
 import { Form } from 'react-bootstrap';
+import { useLocalStorageState } from 'react-localstorage-hooks';
 
 
 export const SpellList = () =>{
-
+  
   const [spells, setSpells] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [fetching, setFetching] = useState(true);
   const totalCount = useRef(0);
   
+  const [filter, setFilter] = useLocalStorageState("spellsFilter", { initialState: {}});
   const [filterShow, setFilterShow] = React.useState(false);
   const handleFilterClose = () => setFilterShow(false);
   const handleFilterShow = () => setFilterShow(true);
@@ -56,7 +58,6 @@ export const SpellList = () =>{
   }
 
 
-  const [filter, setFilter] = useState({});
   useEffect(()=>
   {
     setSpells([]);

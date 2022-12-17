@@ -16,6 +16,7 @@ export const SpellFilter = ({value, onChange}) => {
     {
         const updatedFilter = {...value};
         updatedFilter[key] = data;
+        value = updatedFilter;
         onChange(updatedFilter);
     };
 
@@ -50,7 +51,7 @@ export const SpellFilter = ({value, onChange}) => {
         <Container>
             <Row><strong>Рівень</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" onChange={(e)=>updateFilter('levels', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['levels']} onChange={(e)=>updateFilter('levels', e)}>
                     <ToggleButton value="0">Заговір</ToggleButton>
                     <ToggleButton value="1">1-й</ToggleButton>
                     <ToggleButton value="2">2-й</ToggleButton>
@@ -61,23 +62,12 @@ export const SpellFilter = ({value, onChange}) => {
                     <ToggleButton value="7">7-й</ToggleButton>
                     <ToggleButton value="8">8-й</ToggleButton>
                     <ToggleButton value="9">9-й</ToggleButton>
-                    <ToggleButton value="10">10-й</ToggleButton>
-                    <ToggleButton value="11">11-й</ToggleButton>
-                    <ToggleButton value="12">12-й</ToggleButton>
-                    <ToggleButton value="13">13-й</ToggleButton>
-                    <ToggleButton value="14">14-й</ToggleButton>
-                    <ToggleButton value="15">15-й</ToggleButton>
-                    <ToggleButton value="16">16-й</ToggleButton>
-                    <ToggleButton value="17">17-й</ToggleButton>
-                    <ToggleButton value="18">18-й</ToggleButton>
-                    <ToggleButton value="19">19-й</ToggleButton>
-                    <ToggleButton value="20">20-й</ToggleButton>
                 </ToggleButtonGroup>
             </Row>
 
             <Row><strong>Атака</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('attackTypes', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['attackTypes']} onChange={(e)=>updateFilter('attackTypes', e)}>
                     <ToggleButton value="0">Рукопашна</ToggleButton>
                     <ToggleButton value="1">Далекобійна</ToggleButton>
                 </ToggleButtonGroup>
@@ -85,7 +75,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Вид ушкоджень</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('damageTypes', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['damageTypes']} onChange={(e)=>updateFilter('damageTypes', e)}>
                     <ToggleButton value="1">Кислотою</ToggleButton>
                     <ToggleButton value="2">Дробильні</ToggleButton>
                     <ToggleButton value="3">Холодом</ToggleButton>
@@ -104,7 +94,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Ефект</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('effectTypes', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['effectTypes']} onChange={(e)=>updateFilter('effectTypes', e)}>
                     <ToggleButton value="0">Зміна форми (Shapechanging)</ToggleButton>
                     <ToggleButton value="1">Виявлення (Detection)</ToggleButton>
                     <ToggleButton value="2">Телепортація (Teleportation)</ToggleButton>
@@ -143,7 +133,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Кидок рятунку</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('savingThrowTypes', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['savingThrowTypes']} onChange={(e)=>updateFilter('savingThrowTypes', e)}>
                     <ToggleButton value="0">Вправність</ToggleButton>
                     <ToggleButton value="1">Статура</ToggleButton>
                     <ToggleButton value="2">Сила</ToggleButton>
@@ -155,7 +145,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Школа магії</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" onChange={(e)=>updateFilter('schools', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['schools']} onChange={(e)=>updateFilter('schools', e)}>
                     <ToggleButton value="1">Огородження</ToggleButton>
                     <ToggleButton value="2">Виклику</ToggleButton>
                     <ToggleButton value="3">Віщування</ToggleButton>
@@ -169,7 +159,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Компоненти</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" onChange={(e)=>updateFilter('components', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['components']} onChange={(e)=>updateFilter('components', e)}>
                     <ToggleButton value="Словесний">Verbal</ToggleButton>
                     <ToggleButton value="Тілесний">Somatic</ToggleButton>
                     <ToggleButton value="Матеріальний">Material</ToggleButton>
@@ -178,7 +168,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Ритуал</strong></Row>
             <Row>
-                <ToggleButtonGroup name="ritual" type="radio" defaultValue="-" onChange={(e)=>updateFilter('ritual', e)}>
+                <ToggleButtonGroup name="ritual" type="radio" defaultValue="-" value={value['ritual']} onChange={(e)=>updateFilter('ritual', e)}>
                     <ToggleButton value="-">байдуже</ToggleButton>
                     <ToggleButton value="true">так</ToggleButton>
                     <ToggleButton value="false">ні</ToggleButton>
@@ -187,7 +177,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Концентрація</strong></Row>
             <Row>
-                <ToggleButtonGroup type="radio" name="concentration" defaultValue="-" onChange={(e)=>updateFilter('concentration', e)}>
+                <ToggleButtonGroup type="radio" name="concentration" defaultValue="-" value={value['concentration']} onChange={(e)=>updateFilter('concentration', e)}>
                     <ToggleButton value="-">байдуже</ToggleButton>
                     <ToggleButton value="true">потрібна</ToggleButton>
                     <ToggleButton value="false">не потрібна</ToggleButton>
@@ -196,7 +186,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Джерела</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox"  onChange={(e)=>updateFilter('sources', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['sources']} onChange={(e)=>updateFilter('sources', e)}>
                     {sources.map(source =>
                         <ToggleButton key={source} value={source}>{source}</ToggleButton>
                     )}
@@ -205,7 +195,7 @@ export const SpellFilter = ({value, onChange}) => {
 
             <Row><strong>Класи</strong></Row>
             <Row>
-                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" onChange={(e)=>updateFilter('classes', e)}>
+                <ToggleButtonGroup style={{ "flex-wrap": "wrap" }} type="checkbox" value={value['classes']} onChange={(e)=>updateFilter('classes', e)}>
                     {classesOptions.map(c =>
                         <ToggleButton key={c.value} value={c.value}>{c.label}</ToggleButton>
                     )}
@@ -220,7 +210,14 @@ export const SpellFilter = ({value, onChange}) => {
                     options={archetypeOptions}
                     className="basic-multi-select"
                     classNamePrefix="select"
-                    onChange={(e)=>updateFilter('archetypes', e.map(o => o.value))}
+                    value={value['archetypes_value']}
+                    onChange={(e)=>
+                        {
+                            const updatedFilter = {...value};
+                            updatedFilter['archetypes_value'] = e;
+                            value = updatedFilter;
+                            updateFilter('archetypes', e.map(o => o.value));
+                        }}
                 />
             </Row>
 
