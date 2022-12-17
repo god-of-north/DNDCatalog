@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Form, Row, Col, FormCheck, FormControl, Alert } from 'react-bootstrap';
+import { Form, Row, Col, FormCheck, FormControl, Alert, Container } from 'react-bootstrap';
 import { EditName } from './components/EditName';
 import { Description } from './components/Description';
 import { Level } from './components/Level';
@@ -177,7 +177,7 @@ export const SpellEditPage = () =>{
     
     
     return (
-      <div>
+      <Container fluid={true}>
         <h1>Редагування заклинання</h1>
 
         {alertMessage!=="" &&  
@@ -192,22 +192,22 @@ export const SpellEditPage = () =>{
             <EditName eng={nameEng} ru={nameRu} ua={nameUa}/>
             <Description translation={descriptionUa} setTranslation={(d) =>setDescriptionUa(d)} eng={descriptionEng} ru1={descriptionRu1} ru2={descriptionRu2} ua1={descriptionUa1} ua2={descriptionUa2}/>
             <Row>
-              <Col>
+              <Col sm={6} lg={2}>
                 <Level />
               </Col>
-              <Col>
+              <Col sm={6} lg={2}>
                 <AttackType />
               </Col>
-              <Col>
+              <Col sm={6} lg={2}>
                 <DamageType />
               </Col>
-              <Col>
+              <Col sm={6} lg={2}>
                 <EffectType />
               </Col>
-              <Col>
+              <Col sm={6} lg={2}>
                 <SavingThrowType />
               </Col>
-              <Col>
+              <Col sm={6} lg={2}>
                 <SpellSchool />
               </Col>
             </Row>
@@ -216,7 +216,7 @@ export const SpellEditPage = () =>{
                 <FormCheck {...register("ritual")} label="Ритуал"  />
                 <FormCheck {...register("concentration")} label="Концентрація" />
               </Col>
-              <Col lg="4">
+              <Col lg={4}>
                 <FormCheck   {...register("somatic")} label="Тілесний" />
                 <FormCheck   {...register("verbal")} label="Словесний" />
                 <FormCheck   {...register("material")} label="Матеріальний" />
@@ -224,24 +224,24 @@ export const SpellEditPage = () =>{
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col sm={6} lg={4}>
                 <CastingTime />
               </Col>
-              <Col>
+              <Col sm={6} lg={4}>
                 <Duration />
               </Col>
-              <Col>
+              <Col sm={6} lg={4}>
                 <Range />
               </Col>
             </Row> 
             <Row>
-              <Col>
+              <Col sm={6} lg={4}>
                 <ClassesSelector />
               </Col>
-              <Col>
+              <Col sm={6} lg={4}>
                 <Archetypes />
               </Col>
-              <Col>
+              <Col sm={6} lg={4}>
                 <SpellSources />
               </Col>
             </Row>
@@ -253,7 +253,7 @@ export const SpellEditPage = () =>{
         <br/>
         <br/>
         <br/>
-      </div>
+      </Container>
     );
 }
 

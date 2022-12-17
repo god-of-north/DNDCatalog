@@ -27,7 +27,7 @@ export const Description = ({translation, eng, ru1, ru2, ua1, ua2, setTranslatio
                 <ReactSummernote
                     value={translation}
                     options={{
-                        height: 350,
+                        height: 500,
                         dialogsInBody: true,
                         toolbar: [
                             ["style", ["style"]],

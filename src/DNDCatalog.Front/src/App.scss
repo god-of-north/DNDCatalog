@@ -3,7 +3,6 @@
 // @import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,700);
 // $headings-font-family:Nunito;
 
-
 $white:#ddd;
 $gray-300:#6e6e6f;
 $gray-400:#444445;
@@ -24,7 +23,11 @@ $enable-shadows:true;
 $body-bg:#272a31;
 $body-color:#a76b09;
 $link-color:#dda74f;
-
+// $background: #f0f;
+// $background-color:#f0f; 
+// $active-background:#f0f;;
+// $border-color: #f0f;
+// $active-border:#f0f;
 
 /*! Import Bootstrap 4 variables */
 @import "~bootstrap/scss/_functions.scss";
@@ -115,3 +118,17 @@ div.select__menu {
 }
 
 
+
+
+//
+// ToggleButton
+//
+
+.btn-primary.active {
+    background-color: lighten($primary,20%) !important;
+  }
+
+.btn-primary:hover {
+    background-color: lighten($primary,10%) !important;
+}
+  
