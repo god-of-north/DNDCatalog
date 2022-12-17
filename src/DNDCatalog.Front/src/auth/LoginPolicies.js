@@ -2,7 +2,6 @@ import jwt from 'jwt-decode'
 
 export const logout = () =>
 {
-    console.log("----logout");
     localStorage.setItem("isAuthenticated", JSON.stringify(false));
     localStorage.setItem("authToken", JSON.stringify(""));
     localStorage.setItem("authUsername", JSON.stringify(""));
