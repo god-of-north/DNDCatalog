@@ -12,7 +12,7 @@ public class SourceRepository : ISourceRepository
         _db = dbContext;
     }
 
-    public async Task<IReadOnlyList<string?>> ListSourcesAsync(CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<string?>> ListSourcesAsync(CancellationToken cancellationToken = default)
     {
         return await _db.Spells
             .AsNoTracking()
