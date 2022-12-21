@@ -17,7 +17,7 @@ public class MagicItemGetById : EndpointBaseAsync.WithRequest<GetMagicItemByIdRe
         _mapper = mapper;
     }
 
-    [HttpGet("/api/v1/MagicItem/{MagicItemId:guid}")]
+    [HttpGet("/api/v1/MagicItems/{MagicItemId:guid}")]
     [SwaggerOperation(
       Summary = "Gets a single MagicItem",
       Description = "Gets a single MagicItem by Id",

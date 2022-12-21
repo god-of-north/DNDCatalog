@@ -25,7 +25,7 @@ public class MagicItemGetById : IClassFixture<DNDCatalogAPIApplicationFactory<We
         _client = factory.CreateClient();
     }
 
-    private string BuildRoute(string id) => $"/api/v1/MagicItem/{id}";
+    private string BuildRoute(string id) => $"/api/v1/MagicItems/{id}";
 
     public static IEnumerable<object[]> TestDataWithExistingIds
     {
