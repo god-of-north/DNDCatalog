@@ -10,16 +10,15 @@ import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/tooltip";
 import "bootstrap/dist/css/bootstrap.css";
 
-export const Description = ({translation, eng, ru1, ru2, ua1, ua2, setTranslation}) =>{
+export const Description = ({translation, ru1, ru2, ua1, ua2, setTranslation}) =>{
 
     return (
         <Row>
             <Col sm={6} lg={6}>
-                {eng!=="" && <DescriptionItem description={eng} onCopyClicked={(d) => setTranslation(d)}/> }
-                {ru1!=="" && <DescriptionItem description={ru1} onCopyClicked={(d) => setTranslation(d)}/> }
-                {ru2!=="" && <DescriptionItem description={ru2} onCopyClicked={(d) => setTranslation(d)}/> }
-                {ua1!=="" && <DescriptionItem description={ua1} onCopyClicked={(d) => setTranslation(d)}/> }
-                {ua2!=="" && <DescriptionItem description={ua2} onCopyClicked={(d) => setTranslation(d)}/> }
+                {ru1 && <DescriptionItem description={ru1} onCopyClicked={(d) => setTranslation(d)}/> }
+                {ru2 && <DescriptionItem description={ru2} onCopyClicked={(d) => setTranslation(d)}/> }
+                {ua1 && <DescriptionItem description={ua1} onCopyClicked={(d) => setTranslation(d)}/> }
+                {ua2 && <DescriptionItem description={ua2} onCopyClicked={(d) => setTranslation(d)}/> }
             </Col>
             <Col sm={6} lg={6}>
                 <ReactSummernote

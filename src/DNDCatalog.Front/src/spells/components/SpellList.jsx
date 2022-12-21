@@ -96,7 +96,7 @@ export const SpellList = () =>{
       <Button align="right" variant="primary" onClick={handleFilterShow}>Фільтри</Button>
 
       <Modal show={filterShow} onHide={handleFilterClose} size="lg" centered >
-        <Modal.Header closeButton><Modal.Title>Фільтри</Modal.Title></Modal.Header>
+        <Modal.Header closeButton><Modal.Title>⚙Фільтри</Modal.Title></Modal.Header>
         <Modal.Body>
           <SpellFilter value={filter} onChange={setFilter}/>
         </Modal.Body>

@@ -21,8 +21,8 @@ export const SpellListItem = ({spell}) => {
             <div>{spell.source}</div>
           </Col>
           <Col align="right">
-            {/* {isAuthenticated ?? <Link to={"/spells/edit/"+spell.id}> <Button>Редагувати</Button> </Link> } */}
-            <Link to={"/spells/edit/"+spell.id}> <Button>Редагувати</Button> </Link>
+            {/* {isAuthenticated ?? <Link to={"/spells/edit/"+spell.id}> <Button>✏Редагувати</Button> </Link> } */}
+            <Link to={"/spells/edit/"+spell.id}> <Button>✏Редагувати</Button> </Link>
           </Col>
         </Row>
       </Container>

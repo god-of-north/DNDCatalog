@@ -5,7 +5,7 @@ export const SpellsPage = () => {
 
     return (
       <div>
-        <h1>Заклинання</h1>
+        <h1>✨Заклинання</h1>
         <SpellList/>
       </div>
     );

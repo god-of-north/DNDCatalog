@@ -11,6 +11,7 @@ const context =  [
   "/api/v1/sources",
   "/api/v1/authenticate",
   "/api/v1/register",
+  "/api/v1/magicItems",
 ];
 
 module.exports = function(app) {
