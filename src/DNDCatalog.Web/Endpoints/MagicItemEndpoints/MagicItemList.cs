@@ -37,7 +37,7 @@ public class MagicItemList : EndpointBaseAsync.WithRequest<MagicItemListRequest>
 
         var response = new MagicItemListResponse
         {
-            MagicItemss = magicItems
+            MagicItems = magicItems
                 .Select(magicItem => _mapper.Map<MagicItemListItemDto>(magicItem))
                 .ToList(),
             TotalCount = totalCount,

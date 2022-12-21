@@ -1,10 +1,13 @@
 ﻿using Autofac.Core;
+using DNDCatalog.Core.ClassAggregate;
 using DNDCatalog.Core.Interfaces;
 using DNDCatalog.Infrastructure;
 using DNDCatalog.Infrastructure.Data;
 using DNDCatalog.UnitTests;
 using DNDCatalog.Web;
+using IdentityModel;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -12,6 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace DNDCatalog.FunctionalTests;
 
@@ -36,7 +42,7 @@ public class DNDCatalogAPIApplicationFactory<TStartup> : WebApplicationFactory<T
             {
                 var db = scopedServices.GetRequiredService<CatalogDbContext>();
                 db.Database.EnsureCreated();
-                SeedData.PopulateTestData(db);
+                FakeData.PopulateData(db);
             }
             catch (Exception ex)
             {
@@ -68,6 +74,37 @@ public class DNDCatalogAPIApplicationFactory<TStartup> : WebApplicationFactory<T
                 {
                     options.UseInMemoryDatabase(inMemoryCollectionName);
                 });
+
+                services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = MockJwtToken.SecurityKey,
+
+                        SignatureValidator = delegate (string token, TokenValidationParameters parameters)
+                        {
+                            JwtSecurityToken jwt = new JwtSecurityToken(token);
+
+                            return jwt;
+                        },
+                        RequireExpirationTime = true,
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero,
+                        RequireSignedTokens = false,
+                    };
+                    options.Audience = MockJwtToken.Audience;
+                    options.Authority = MockJwtToken.Issuer;
+                    options.Configuration = new Microsoft.IdentityModel.Protocols.OpenIdConnect.OpenIdConnectConfiguration()
+                    {
+                        Issuer = MockJwtToken.Issuer,
+                    };
+                });
+
             });
     }
+
 }

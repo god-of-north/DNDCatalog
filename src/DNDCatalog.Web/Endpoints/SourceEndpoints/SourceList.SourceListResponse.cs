@@ -2,5 +2,5 @@
 
 public class SourceListResponse
 {
-    public List<string?> Sources { get; internal set; } = new();
+    public List<string?> Sources { get; set; } = new();
 }

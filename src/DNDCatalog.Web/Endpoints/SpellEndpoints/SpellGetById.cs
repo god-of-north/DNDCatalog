@@ -19,7 +19,7 @@ public class SpellGetById : EndpointBaseAsync.WithRequest<GetSpellByIdRequest>.W
         _mapper = mapper;
     }
 
-    [HttpGet(GetSpellByIdRequest.Route)]
+    [HttpGet("/api/v1/Spells/{SpellId:guid}")]
     [SwaggerOperation(
       Summary = "Gets a single Spell",
       Description = "Gets a single Spell by Id",

@@ -25,8 +25,8 @@ public class ArchetypeList : IClassFixture<DNDCatalogAPIApplicationFactory<WebMa
     {
         var result = await _client.GetAndDeserializeAsync<ArchetypeListResponse>("/api/v1/classes/Archetypes");
 
-        //Assert.Single(result.Archetypes);
-        //Assert.Contains(result.Archetypes, i => i.Name == SeedData.TestProject1.Name);
+        Assert.Equal(FakeData.DefaultArchetypes.Count(), result.Archetypes.Count());
+        Assert.Contains(result.Archetypes, c => c.Id == FakeData.archetype4.Id);
     }
 
 }
