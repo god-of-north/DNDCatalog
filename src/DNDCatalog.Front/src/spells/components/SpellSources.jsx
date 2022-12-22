@@ -10,7 +10,7 @@ export const SpellSources = () =>{
     const [sourceOptions, setSourceOptions] = useState([]);
 
     const getSources = async () => {
-        const response = await fetch('api/v1/sources');
+        const response = await fetch('api/v1/sources/spells');
         const data = await response.json();
         const options = data.sources.map((x) => Object.create({value:x, label:x}));
         setSourceOptions(options);

@@ -18,7 +18,7 @@ export const MagiItemsFilter = ({value, onChange}) => {
     };
 
     const getSources = async () => {
-        const response = await fetch('api/v1/sources');
+        const response = await fetch('api/v1/sources/magic-items');
         const data = await response.json();
         setSources(data.sources);
     }

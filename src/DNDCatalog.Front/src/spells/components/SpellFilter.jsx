@@ -21,7 +21,7 @@ export const SpellFilter = ({value, onChange}) => {
     };
 
     const getSources = async () => {
-        const response = await fetch('api/v1/sources');
+        const response = await fetch('api/v1/sources/spells');
         const data = await response.json();
         setSources(data.sources);
     }
