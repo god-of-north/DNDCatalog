@@ -22,7 +22,8 @@ export const SpellListItem = ({spell}) => {
           </Col>
           <Col align="right">
             {/* {isAuthenticated ?? <Link to={"/spells/edit/"+spell.id}> <Button>✏Редагувати</Button> </Link> } */}
-            <Link to={"/spells/edit/"+spell.id}> <Button>✏Редагувати</Button> </Link>
+            {/* <Link to={"/spells/edit/"+spell.id}> <Button>✏Редагувати</Button> </Link> */}
+            <Link to={"/spells/edit/"+spell.name.short}> <Button>✏Редагувати</Button> </Link>
           </Col>
         </Row>
       </Container>

@@ -23,7 +23,8 @@ import { useLocalStorageState } from 'react-localstorage-hooks';
 
 export const SpellEditPage = () =>{
 
-    let { spellId } = useParams();
+    // let { spellId } = useParams();
+    let { spellName } = useParams();
 
     const methods = useForm();
     const {register, handleSubmit, setValue } = methods;
@@ -51,12 +52,12 @@ export const SpellEditPage = () =>{
       setAlertMessage(message);
     }
 
-    const getSpell = async (id) =>
+    const getSpell = async (name) =>
     {
-      const response = await fetch('api/v1/spells/'+id);
+      const response = await fetch('api/v1/spells/'+name);
       const data = await response.json();
 
-      setValue("id", spellId);
+      setValue("id", data.id);
       setValue("name", data.name.ukr);
       setValue("description", data.description.ukr);
       setValue("attackType", data.attack==null?"---":data.attack);
@@ -98,7 +99,7 @@ export const SpellEditPage = () =>{
     }
     
     useEffect(()=>{
-      getSpell(spellId);
+      getSpell(spellName);
     }, []);
     
     const getSelectItem = (item) => item==="---"?null:item;
@@ -115,7 +116,7 @@ export const SpellEditPage = () =>{
       
       const req = {};
 
-      req.id = spellId;
+      req.id = data.id;
       req.name = data.name;
       req.description = descriptionUa;
       req.level = data.level;

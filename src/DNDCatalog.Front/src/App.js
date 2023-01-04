@@ -29,7 +29,7 @@ export default class App extends Component {
         <Routes>
           <Route path='/' element={<Home/>} />
 
-          <Route path='/spells/edit/:spellId' element={<SpellEditPage/>} />
+          <Route path='/spells/edit/:spellName' element={<SpellEditPage/>} />
           <Route path='/spells' element={<SpellsPage/>} exact />
 
           <Route path='/magic-items/edit/:magicItemId' element={<MagicItemEditPage/>} />

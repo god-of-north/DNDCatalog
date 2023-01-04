@@ -14,7 +14,8 @@ public class Mapping : Profile
         CreateMap<Spell, SpellNameDto>()
             .ForCtorParam("Ukr", opt => opt.MapFrom(x => x.NameUa))
             .ForCtorParam("Eng", opt => opt.MapFrom(x => x.NameEng))
-            .ForCtorParam("Rus", opt => opt.MapFrom(x => x.NameRus));
+            .ForCtorParam("Rus", opt => opt.MapFrom(x => x.NameRus))
+            .ForCtorParam("Short", opt => opt.MapFrom(x => x.ShortName));
 
         CreateMap<Spell, SpellListItemDto>()
             .ForCtorParam("Name", opt=> opt.MapFrom(x => x));
@@ -53,6 +54,11 @@ public class Mapping : Profile
 
         CreateMap<SpellListRequest, FilterSpellListSpec>();
         CreateMap<SpellListRequest, FilterSpellListWithPagesSpec>();
+
+
+        CreateMap<Spell, GetSpellByShortNameResponse>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(x => x))
+            .ForMember(dest => dest.Description, opt => opt.MapFrom(x => x));
     }
 }
 

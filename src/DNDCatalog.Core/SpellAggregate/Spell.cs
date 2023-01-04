@@ -7,6 +7,7 @@ namespace DNDCatalog.Core.SpellAggregate;
 
 public class Spell : EntityBase, IAggregateRoot
 {
+    public string? ShortName { get; set; } = null!;
     public string NameUa { get; set; } = null!;
     public string NameRus { get; set; } = null!;
     public string NameEng { get; set; } = null!;
