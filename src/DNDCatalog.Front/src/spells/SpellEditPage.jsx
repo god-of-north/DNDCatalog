@@ -16,10 +16,10 @@ import { Range } from './components/Range';
 import { Archetypes } from './components/Archetypes';
 import { SpellSources } from './components/SpellSources';
 import axios from 'axios';
-
 import {useForm, FormProvider} from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocalStorageState } from 'react-localstorage-hooks';
+import {Helmet} from "react-helmet";
 
 export const SpellEditPage = () =>{
 
@@ -179,6 +179,10 @@ export const SpellEditPage = () =>{
     
     return (
       <Container fluid={true}>
+        <Helmet>
+          <title>{nameUa} / Заклинання / DND.Catalog</title>
+        </Helmet>
+        
         <h1>Редагування заклинання</h1>
 
         {alertMessage!=="" &&  

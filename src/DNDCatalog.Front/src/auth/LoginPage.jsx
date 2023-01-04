@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useForm} from 'react-hook-form';
 import { Form, FormControl, FormGroup, FormLabel, Button, Alert } from 'react-bootstrap';
 import { useLocalStorageState } from 'react-localstorage-hooks';
+import {Helmet} from "react-helmet";
 
 export const LoginPage = () => {
 
@@ -57,7 +58,10 @@ export const LoginPage = () => {
 
     if(!isAuthenticated) return (
       <div>
-        <h1>Login</h1>
+        <Helmet>
+          <title>Вхід / DND.Catalog</title>
+        </Helmet>
+        <h1>Логін</h1>
         {alertMessage!=="" && 
             <Alert variant={alertMessageType} onClose={() => setAlertMessage("")} dismissible>
                 {alertMessageType === "danger" && <Alert.Heading>Login Error!</Alert.Heading> }
@@ -73,14 +77,17 @@ export const LoginPage = () => {
                 <FormLabel>Email address</FormLabel>
                 <FormControl type="password" {...register("password")} placeholder="your password here"/>
             </FormGroup>
-            <Button type="submit">Login</Button>
+            <Button type="submit">Увійти</Button>
         </Form>
       </div>
     );
     else return (
         <div>
-            <h1>Hello, {authUsername}!</h1>
-            <Button onClick={logout}>Logout</Button>
+            <Helmet>
+            <title>{authUsername} / DND.Catalog</title>
+            </Helmet>
+            <h1>Вітаю, {authUsername}!</h1>
+            <Button onClick={logout}>Вийти</Button>
         </div>
     );
 }

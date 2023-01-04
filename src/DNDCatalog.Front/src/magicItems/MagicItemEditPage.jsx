@@ -11,6 +11,7 @@ import { Rarity } from './components/Rarity';
 import { MagicItemType } from './components/MagicItemType';
 import { MagicBonus } from './components/MagicBonus';
 import { MagicItemSources } from './components/MagicItemSources';
+import {Helmet} from "react-helmet";
 
 export const MagicItemEditPage = () => {
 
@@ -131,6 +132,10 @@ export const MagicItemEditPage = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>{nameUa} / Магічні предмети / DND.Catalog</title>
+            </Helmet>
+
             <h1>🔮✏Редагування магічного предмета</h1>
 
             {alertMessage !== "" &&
